@@ -216,7 +216,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-shield]: https://img.shields.io/github/license/sachuverma/Github-Users.svg?style=for-the-badge
 [license-url]: https://github.com/sachuverma/Github-Users/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/sachuverma
 [product-screenshot]: src/images/user.png
 [login-screenshot]: src/images/login.png
 [auth-screenshot]: src/images/auth.png
