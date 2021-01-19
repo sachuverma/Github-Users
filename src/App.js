@@ -10,9 +10,9 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route exact path="/">
+        <PrivateRoute exact path="/">
           <Dashboard></Dashboard>
-        </Route>
+        </PrivateRoute>
 
         <Route path="*">
           <Error />
