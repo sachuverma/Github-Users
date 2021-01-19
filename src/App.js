@@ -5,20 +5,22 @@ import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from "./pages";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <PrivateRoute exact path="/">
-          <Dashboard></Dashboard>
-        </PrivateRoute>
+    <AuthWrapper>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute exact path="/">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
 
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthWrapper>
   );
 }
 
