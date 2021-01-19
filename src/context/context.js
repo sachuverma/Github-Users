@@ -30,13 +30,20 @@ const GithubProvider = ({ children }) => {
     if (res) {
       setGithubUser(res.data);
       const { login, followers_url } = res.data;
-      axios(`${rootUrl}/users/${login}/repos?pre_page=100`).then((data) =>
-        setRepos(data.data)
-      );
 
-      axios(`${followers_url}?pre_page=100`).then((data) =>
-        setRepos(data.data)
-      );
+      await Promise.allSettled([
+        axios(`${rootUrl}/users/${login}/repos?per_page=100`),
+        axios(`${followers_url}?per_page=100`),
+      ]).then((results) => {
+        const [repos, followers] = results;
+        const status = "fulfilled";
+
+        if (repos.status === status) setRepos(repos.value.data);
+
+        if (followers.status === status)
+          setGithubFollowers(followers.value.data);
+      });
+
       /*
       https://api.github.com/users/sachuverma/repos?per_page=100
 
