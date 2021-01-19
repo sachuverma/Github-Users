@@ -29,6 +29,19 @@ const GithubProvider = ({ children }) => {
 
     if (res) {
       setGithubUser(res.data);
+      const { login, followers_url } = res.data;
+      axios(`${rootUrl}/users/${login}/repos?pre_page=100`).then((data) =>
+        setRepos(data.data)
+      );
+
+      axios(`${followers_url}?pre_page=100`).then((data) =>
+        setRepos(data.data)
+      );
+      /*
+      https://api.github.com/users/sachuverma/repos?per_page=100
+
+      https://api.github.com/users/sachuverma/followers
+      */
     } else {
       toggleError(true, "No user with that username");
     }
